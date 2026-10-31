@@ -9,9 +9,12 @@ import {
   Wallet,
   Menu,
   LogOut,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
+import { useToast } from '../../context/ToastContext';
 
 interface NavbarProps {
   onToggleMobileNav: () => void;
@@ -24,8 +27,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleMobileNav }) => {
     openExpenseModal,
     openIncomeModal,
     settings,
+    toggleTheme,
   } = useApp();
   const { user, logout } = useAuth();
+  const { showToast } = useToast();
 
   const handlePrevMonth = () => {
     const current = parseISO(`${selectedMonth}-01`);
@@ -118,6 +123,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleMobileNav }) => {
           >
             <Minus className="w-4 h-4 stroke-[2.5]" />
             <span className="hidden sm:inline">Add</span> Expense
+          </button>
+          <button
+            onClick={() => void toggleTheme().catch((error: Error) => showToast(error.message || 'Failed to change theme', 'error'))}
+            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 px-2.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 sm:px-3"
+            title={settings?.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={settings?.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {settings?.theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            <span className="hidden sm:inline">{settings?.theme === 'dark' ? 'Light' : 'Dark'}</span>
           </button>
           <button
             onClick={() => void logout()}

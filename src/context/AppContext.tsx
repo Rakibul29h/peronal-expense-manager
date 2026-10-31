@@ -13,6 +13,7 @@ interface AppContextType {
   settings: UserSettings | null;
   categories: Category[];
   refreshSettings: () => Promise<void>;
+  toggleTheme: () => Promise<void>;
   refreshCategories: () => Promise<void>;
 
   // Global Mutation Trigger (increments on every create/edit/delete/reset)
@@ -78,6 +79,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, []);
 
+  const applyTheme = useCallback((theme: UserSettings['theme']) => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, []);
+
+  const toggleTheme = useCallback(async () => {
+    const nextTheme: UserSettings['theme'] = settings?.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    setSettings(previous => previous ? { ...previous, theme: nextTheme } : previous);
+    try {
+      const response = await api.updateSettings({ theme: nextTheme });
+      setSettings(response.data);
+    } catch (error) {
+      applyTheme(settings?.theme || 'light');
+      setSettings(previous => previous ? { ...previous, theme: settings?.theme || 'light' } : previous);
+      throw error;
+    }
+  }, [applyTheme, settings]);
+
   const refreshCategories = useCallback(async () => {
     try {
       const res = await api.getCategories();
@@ -91,6 +110,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     refreshSettings();
     refreshCategories();
   }, [refreshSettings, refreshCategories]);
+
+  useEffect(() => {
+    if (settings) applyTheme(settings.theme);
+  }, [settings, applyTheme]);
 
   const openExpenseModal = (expense?: ExpenseRecord) => {
     setEditingExpense(expense || null);
@@ -128,6 +151,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         settings,
         categories,
         refreshSettings,
+        toggleTheme,
         refreshCategories,
         refreshKey,
         triggerRefresh,
