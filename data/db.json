@@ -1,0 +1,251 @@
+{
+  "expenses": [],
+  "income": [],
+  "categories": [
+    {
+      "id": "exp_food",
+      "name": "Food & Dining",
+      "type": "expense",
+      "icon": "Utensils",
+      "color": "#f97316",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_groceries",
+      "name": "Groceries",
+      "type": "expense",
+      "icon": "ShoppingCart",
+      "color": "#84cc16",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_transport",
+      "name": "Transportation",
+      "type": "expense",
+      "icon": "Car",
+      "color": "#06b6d4",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_housing",
+      "name": "Housing & Rent",
+      "type": "expense",
+      "icon": "Home",
+      "color": "#6366f1",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_utilities",
+      "name": "Utilities & Bills",
+      "type": "expense",
+      "icon": "Zap",
+      "color": "#eab308",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_shopping",
+      "name": "Shopping",
+      "type": "expense",
+      "icon": "ShoppingBag",
+      "color": "#ec4899",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_health",
+      "name": "Health & Medical",
+      "type": "expense",
+      "icon": "HeartPulse",
+      "color": "#ef4444",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_entertainment",
+      "name": "Entertainment",
+      "type": "expense",
+      "icon": "Film",
+      "color": "#8b5cf6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_education",
+      "name": "Education",
+      "type": "expense",
+      "icon": "GraduationCap",
+      "color": "#3b82f6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_travel",
+      "name": "Travel",
+      "type": "expense",
+      "icon": "Plane",
+      "color": "#14b8a6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_personal",
+      "name": "Personal Care",
+      "type": "expense",
+      "icon": "Sparkles",
+      "color": "#f43f5e",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_subscriptions",
+      "name": "Subscriptions",
+      "type": "expense",
+      "icon": "Repeat",
+      "color": "#a855f7",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "exp_other",
+      "name": "Other",
+      "type": "expense",
+      "icon": "MoreHorizontal",
+      "color": "#64748b",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_salary",
+      "name": "Salary",
+      "type": "income",
+      "icon": "Briefcase",
+      "color": "#10b981",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_freelance",
+      "name": "Freelance",
+      "type": "income",
+      "icon": "Laptop",
+      "color": "#06b6d4",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_business",
+      "name": "Business or Side Income",
+      "type": "income",
+      "icon": "TrendingUp",
+      "color": "#3b82f6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_investment",
+      "name": "Investment Returns",
+      "type": "income",
+      "icon": "Coins",
+      "color": "#8b5cf6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_rental",
+      "name": "Rental Income",
+      "type": "income",
+      "icon": "Building",
+      "color": "#14b8a6",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_gifts",
+      "name": "Gifts",
+      "type": "income",
+      "icon": "Gift",
+      "color": "#ec4899",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_allowance",
+      "name": "Allowance",
+      "type": "income",
+      "icon": "Wallet",
+      "color": "#f59e0b",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_refunds",
+      "name": "Refunds",
+      "type": "income",
+      "icon": "RotateCcw",
+      "color": "#84cc16",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    },
+    {
+      "id": "inc_other",
+      "name": "Other",
+      "type": "income",
+      "icon": "PlusCircle",
+      "color": "#64748b",
+      "isActive": true,
+      "isDefault": true,
+      "createdAt": "2026-10-29T14:37:21.440Z"
+    }
+  ],
+  "settings": {
+    "id": "user_settings_default",
+    "currency": "BDT",
+    "currencySymbol": "৳",
+    "openingBalance": 0,
+    "survivalWindowDays": 30,
+    "warningThresholdDays": 15,
+    "theme": "light",
+    "dateFormat": "yyyy-MM-dd",
+    "updatedAt": "2026-10-29T14:37:21.440Z"
+  },
+  "borrowings": [],
+  "tuitions": [
+    {
+      "id": "tuition_1793300252769",
+      "name": "Samir",
+      "targetDaysPerMonth": 2,
+      "sessions": [],
+      "paid": false,
+      "monthKey": "2026-10",
+      "parentId": "tuition_1793300252769",
+      "createdAt": "2026-10-29T18:57:32.769Z",
+      "updatedAt": "2026-10-29T18:57:32.769Z"
+    }
+  ]
+}

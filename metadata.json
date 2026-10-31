@@ -1,0 +1,6 @@
+{
+  "name": "FinanceFlow - Personal Finance & Expense Tracker",
+  "description": "Modern personal finance dashboard to track income, expenses, remaining balance, survival runway, category breakdowns, and month-over-month comparisons.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
