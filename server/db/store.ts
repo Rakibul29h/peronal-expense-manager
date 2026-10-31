@@ -128,7 +128,7 @@ export async function tryConnectMongo(customUri?: string): Promise<{ success: bo
 
     // Seed only a completely empty database. Clearing transactions must not recreate demo data.
     if (expCount === 0 && incomeCount === 0 && categoryCount === 0 && settingsCount === 0) {
-      const localData = readLocalDb();
+      const localData = fs.existsSync(DB_FILE) ? readLocalDb() : generateInitialSeedData();
       if (localData.expenses.length > 0) {
         await ExpenseModel.insertMany(localData.expenses);
         await IncomeModel.insertMany(localData.income);
@@ -189,20 +189,19 @@ export async function tryConnectMongo(customUri?: string): Promise<{ success: bo
 }
 
 async function initializeDatabase(): Promise<void> {
-  // Ensure data directory exists
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-
-  // Ensure local DB file exists with default seed data
-  if (!fs.existsSync(DB_FILE)) {
-    const initialData = generateInitialSeedData();
-    fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2), 'utf-8');
-  }
-
   // Attempt MongoDB connection if configured
   if (process.env.MONGODB_URI) {
     await tryConnectMongo();
+    return;
+  }
+
+  // Local JSON storage is for development only; Vercel's filesystem is read-only.
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+  if (!fs.existsSync(DB_FILE)) {
+    const initialData = generateInitialSeedData();
+    fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2), 'utf-8');
   }
 }
 
