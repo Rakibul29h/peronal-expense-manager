@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/server/db/store';
+import { db, initDatabase } from '@/server/db/store';
 import { categoryCreateSchema } from '@/server/validations';
 
 export async function GET(_request: NextRequest) {
   try {
+    await initDatabase();
     const categories = await db.getCategories();
     return NextResponse.json({ data: categories });
   } catch (error: any) {
@@ -13,6 +14,7 @@ export async function GET(_request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    await initDatabase();
     const body = await request.json();
     const validated = categoryCreateSchema.parse(body);
     const created = await db.createCategory(validated);

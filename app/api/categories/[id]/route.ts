@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/server/db/store';
+import { db, initDatabase } from '@/server/db/store';
 import { categoryUpdateSchema } from '@/server/validations';
 
 export async function PATCH(
@@ -7,6 +7,7 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    await initDatabase();
     const { id } = await params;
     const body = await request.json();
     const validated = categoryUpdateSchema.parse(body);
@@ -28,6 +29,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    await initDatabase();
     const { id } = await params;
     const success = await db.deleteCategory(id);
     if (!success) {
